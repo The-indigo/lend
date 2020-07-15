@@ -14,27 +14,58 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  bankName:{
-    type:String,
-    required:true
-},
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  dob: {
+    type: Date,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  street: {
+    type: String,
+    required: true,
+  },
+  institution: {
+    type: String,
+    required: true,
+  },
+  jobRole: {
+    type: String,
+    required: true,
+  },
+  length: {
+    type: String,
+    required: true,
+  },
+  bankName: {
+    type: String,
+    required: true,
+  },
   accountNumber: {
-    type: Number,
+    type: Number, 
     required: true,
   },
-  institution:{
-    type: Number,
+  staffId: {
+    type: String,
     required: true,
   },
-  jobRole:{
-    type: Number,
+  salary: {
+    type: String,
     required: true,
   },
-  loan:[Number],
-
-  returnDate:{
-      type:Date
-  }
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
 // userSchema.methods.addToCart=function(product){

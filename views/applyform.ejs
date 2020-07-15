@@ -1,0 +1,69 @@
+<%- include('../includes/header.ejs') %>
+<div class="page-header">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center">
+              <h2>Apply Now</h2>
+          </div>
+      </div>
+  </div>
+</div>
+<section class="section-padding contact-us-padding">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10">
+
+            <%if (errorMessage) {%>
+                <div class="alert alert-danger" role="alert">
+                  <%= errorMessage %>
+                </div>
+                        <% }else if (successMessage){%>
+                          <div class="alert alert-success" role="alert">
+                            <%= successMessage %>
+                          </div>
+                                  <% } %>
+              <form id="myForm" name="myForm" action="/apply" method="post">
+                  
+  
+                      <div class="col-md-6">
+                          <div class="single-get-touch">
+                              <input type="number" name="amount"  min="10000" max="5000000" placeholder="Loan Amount" onkeyup="calculateTotal()" required>
+                          </div>
+                      </div>
+
+            <div class="col-md-6">
+              <div class="single-get-touch">
+                  <input type="number" name="duration" min="1" max="12" placeholder="Loan Duration (months)" onkeyup="calculateTotal()" required>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="single-get-touch">
+                <input type="number" name="permonthamount" placeholder="Total amount to return per month" onkeyup="calculateTotal()" readonly>
+            </div>
+        </div>
+
+          <div class="col-md-6">
+            <div class="single-get-touch">
+                <input type="number" name="returnamount" placeholder="Total amount to return" onkeyup="calculateTotal()" readonly>
+            </div>
+        </div>
+
+        <p id="demo"></p>
+                      
+                      <div class="col-md-12">
+                          <div class="single-get-touch">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                              <button type="submit" name="submit" class="btn btn-default btn-sm">Apply for loan</button>
+                          </div>
+                      </div>
+                  
+              </form>
+          
+      </div>
+  </div>
+</section>
+
+
+
+<%- include('../includes/footer.ejs') %>
+</body>

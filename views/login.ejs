@@ -1,0 +1,79 @@
+<%- include('../includes/header.ejs') %>
+<div class="page-header">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center">
+              <h2>Log in</h2>
+          </div>
+      </div>
+  </div>
+</div>
+<section class="section-padding contact-us-padding">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10">
+
+            <%if (errorMessage) {%>
+              <div class="alert alert-danger" role="alert">
+                <%= errorMessage %>
+              </div>
+                      <% } %>
+              <form action="/login" method="post">
+                  
+  
+                      <div class="col-md-6">
+                          <div class="single-get-touch">
+                              <input type="email" name="email" placeholder="Email" required>
+                          </div>
+                      </div>
+
+            <div class="col-md-6">
+              <div class="single-get-touch">
+                  <input type="password" name="password" placeholder="PASSWORD " required>
+              </div>
+          </div>
+
+
+                      
+                      <div class="col-md-12">
+                          <div class="single-get-touch">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                              <button type="submit" name="submit" class="btn btn-default btn-sm">Log In</button>
+                          </div>
+                          <div class="col-md-6">
+                                Don't have an account?
+                                <a href="/signup">Sign up</a>
+                        </div>
+                      </div>
+                  
+              </form>
+          
+      </div>
+  </div>
+</section>
+
+
+<!-- <div class="d-flex align-items-center flex-column justify-content-center h-100 " id="header">
+<%if (errorMessage) {%>
+<div class="alert alert-danger" role="alert">
+  <%= errorMessage %>
+</div>
+        <% } %>
+<form action='/login' method='POST'>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password">
+  </div>
+ <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <button type="submit" class="btn btn-success">Log In</button>
+</form>
+<p>Don't have an account? </P>
+<span>sign up </span>
+</div> -->
+
+<%- include('../includes/footer.ejs') %>
+</body>
