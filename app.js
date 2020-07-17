@@ -17,7 +17,7 @@ const MONGODB_URI = process.env.DB_CONN;
 const app = express();
 const store= new MongoDBStore({
  uri:MONGODB_URI,
- collection:"sessions" 
+ collection:"sessions"  
 })
 
 const csrfProtection = csrf();
@@ -26,6 +26,8 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 const userRoutes=require('./routes/user')
+const adminRoutes=require('./routes/admin')
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -61,6 +63,8 @@ app.use((req, res, next) => {
 });
 
 app.use(userRoutes)
+app.use(adminRoutes)
+
 
 
 app.use(errorController.geterror);

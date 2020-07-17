@@ -235,6 +235,7 @@ exports.getDashboard = async (req, res, next) => {
   const applicant = req.user._id;
   try {
     const info = await Loan.findOne({ applicant: applicant, completed: false });
+    const declined= await Loan.find
     const table = await Loan.find({ applicant: applicant, completed: true });
     res.render("../views/dashboard", {
       Title: "Dashboard",
@@ -244,7 +245,7 @@ exports.getDashboard = async (req, res, next) => {
     });
   } catch (error) {
     console.log(error);
-  }
+  } 
 };
 
 exports.getPaystack = async (req, res, next) => {

@@ -32,5 +32,10 @@ const loanSchema = new Schema({
     default: false,
     required: true,
   },
+  approved:{
+    type:String,
+    default:"awaiting",
+    required: true,
+  },
 });
 module.exports = mongoose.model("Loan", loanSchema);
